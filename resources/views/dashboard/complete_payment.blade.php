@@ -7,7 +7,7 @@
 <script>
   function payWithPaystack(){
     var handler = PaystackPop.setup({
-      key: 'pk_test_4838861237f007db47b0aa0e3fd6283ef13cd9d3',
+      key: `{{ env('PAYSTACK_PUBLIC_KEY') }}`,
       email: '{{$user->email}}',
       amount: '{{ ($transaction->total_amount + $transaction->gateway_charges) * 100 }}',
       currency: "NGN",
