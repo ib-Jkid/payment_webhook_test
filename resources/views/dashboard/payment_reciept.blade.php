@@ -7,7 +7,7 @@
                 <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
               
                     <div class="card">
-                        <h2 class="card-header text-center">RECIEPT</h2>
+                        <h2 class="card-header text-center">RECEIPT</h2>
                         <div class="card-body">
                             <table class="table">
                                 <tr>
@@ -22,7 +22,7 @@
                                     <th>Charges:</th>
                                     <td>{{ $transaction->currency }} {{ number_format($transaction->gateway_charges, 2) }}</td>
                                 </tr>
->
+
 
                                 <tr>
                                     <th>Status</th>

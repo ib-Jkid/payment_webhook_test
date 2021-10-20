@@ -32,7 +32,7 @@ class DashboardController extends Controller
         $user = Auth::user();
 
 
-        $transactions = $user->transactions()->paginate(1);
+        $transactions = $user->transactions()->paginate(5);
 
 
         return view("dashboard.transactions",compact("transactions"));
@@ -47,7 +47,7 @@ class DashboardController extends Controller
     public function initiate_payment(Request $request) {
         
         $this->validate($request, [
-            "amount" => "required|numeric",
+            "amount" => "required|numeric|min:100",
             "currency" => "required"
         ]);
 
@@ -93,7 +93,11 @@ class DashboardController extends Controller
         try {
             $verificationResponse = $this->_paymentService->verifyPayment($transaction->reference);
         }catch(PaymentException $e) {
-            return $e;
+        
+
+            request()->session()->flash("danger",$e->getMessage());
+
+            return redirect()->back();
         }
 
 

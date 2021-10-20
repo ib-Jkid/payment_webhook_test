@@ -22,7 +22,10 @@
          
       },
       onClose: function(){
-        
+        var link = document.createElement('a');
+        link.href = `{{ route('payment') }}`;
+        document.body.appendChild(link);
+        link.click(); 
       }
     });
     handler.openIframe();

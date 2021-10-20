@@ -28,7 +28,7 @@
                                     <th>{{ $transaction->status }}</th>
                                     <th>{{ $transaction->paid_on }}</th>
                                     <th>{{ $transaction->created_at }}</th>
-                                    <th><a href="#"  class="btn btn-info btn-md" >Details</a></th>
+                                    <th><a href="{{ route('payment.verify',$transaction->reference) }}"  class="btn btn-info btn-md" >{{ $transaction->status != 'pending'? 'View Receipt'  : 'Verify'}}</a></th>
                                 </tr>
                             @endforeach
                             </tbody>
