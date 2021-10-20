@@ -10,4 +10,4 @@
 
 ## Run `php artisan serve`
 
-## Chears
+## Cheers
